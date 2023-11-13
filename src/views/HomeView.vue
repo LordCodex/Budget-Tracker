@@ -20,6 +20,7 @@ const expenseTitle = ref('');
 const expenseDate = ref('');
 const expenseList = ref([]);
 
+
 // Methods
 const addBudget = () => {
   let amount = parseFloat(budgetAmount.value);
@@ -112,6 +113,19 @@ const setGreeting = () => {
   }
 };
 
+const  getMinDate = () => {
+      const today = new Date();
+      const year = today.getFullYear();
+      let month = today.getMonth() + 1; // months are zero-indexed
+      let day = today.getDate();
+
+      // Add leading zero if needed
+      month = month < 10 ? `0${month}` : month;
+      day = day < 10 ? `0${day}` : day;
+
+      return `${year}-${month}-${day}`;
+    }
+    const minDate= getMinDate();
 onMounted(() => {
   setGreeting();
   // expenseList.value.push({
@@ -175,6 +189,7 @@ onMounted(() => {
           </div>
         </div>
 
+        
         <div class="expenseSection flex">
 
 
@@ -252,7 +267,7 @@ onMounted(() => {
 
               <div>
                 <label>Current Date: </label>
-                <input type="date" class="input-field" v-model="expenseDate" id="date" placeholder="Enter your expense.."
+                <input type="date" class="input-field" v-model="expenseDate" id="date"  :min="minDate"  placeholder="Enter your expense.."
                   required autocomplete="off">
               </div>
 
