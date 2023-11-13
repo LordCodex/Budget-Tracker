@@ -114,12 +114,12 @@ const setGreeting = () => {
 
 onMounted(() => {
   setGreeting();
-  expenseList.value.push({
-    amount:0,
-    description: "KODEXCODES",
-    title: "New Expenses",
-    date: "12-5-2020",
-  });
+  // expenseList.value.push({
+  //   amount:0,
+  //   description: "KODEXCODES",
+  //   title: "New Expenses",
+  //   date: "12-5-2020",
+  // });
 });
 </script>
 
